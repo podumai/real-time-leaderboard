@@ -1,6 +1,6 @@
-# Contributing to [allocators]
+# Contributing to [real-time-leaderboard]
 
-Thank you for your interest in contributing to **allocators**! We welcome contributions from the community to help improve the project. Here are some guidelines to help you get started:
+Thank you for your interest in contributing to **real-time-leaderboard**! We welcome contributions from the community to help improve the project. Here are some guidelines to help you get started:
 
 ## Commit message Guidelines
 
