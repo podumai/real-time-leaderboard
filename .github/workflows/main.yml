@@ -23,7 +23,7 @@ jobs:
           echo "linux-compiler=llvm-21" >> $GITHUB_OUTPUT
 
   lint-commits:
-    runs-on: ${{ needs.config.linux-runner-image }}
+    runs-on: ${{ needs.config.outputs.linux-runner-image }}
     permissions:
       contents: 'read'
     needs: [ 'config' ]
