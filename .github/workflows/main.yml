@@ -64,4 +64,4 @@ jobs:
           cmake-lint: true
 
       - name: '[cmake-lint] Run linter'
-        run: cmake-lint ./**/CMakeLists.txt -c .cmake-format.py
+        run: cmake-lint $(find . -name "CMakeLists.txt") -c .cmake-format.py
