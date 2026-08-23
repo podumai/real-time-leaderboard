@@ -13,5 +13,5 @@ commit-linter:
   before_script:
     - 'pnpm install --frozen-lockfile'
   script:
-    - 'pnpm exec commitlint --from HEAD~1 --to HEAD --verbose'
+    - 'pnpm exec commitlint -c commitlint.config.mjs --from HEAD~1 --to HEAD --verbose'
 ...

@@ -1,4 +1,4 @@
 [doc('Invoke commit linter using predefined configuration with pnpm.')]
 [group('lint')]
 commitlint +args:
-    @pnpm exec commitlint -c .commitlint.config.mjs {{ args }}
+    @pnpm exec commitlint -c commitlint.config.mjs {{ args }}
