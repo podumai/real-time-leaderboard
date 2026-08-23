@@ -1,0 +1,21 @@
+[project]
+name = "real-time-leaderboard"
+version = "0.1.0"
+description = "C++ gRPC based server backed with Redis/Valkey (ZSORT + Streams + Pub/Sub) for managing sample leaderboard."
+authors = [
+    { name = "Kirill Morozov", email = "kirillsm05@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+package = false
+
+[build-system]
+requires = ["uv_build>=0.12.0,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.2",
+]
