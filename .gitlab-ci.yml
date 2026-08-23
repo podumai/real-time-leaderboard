@@ -1,0 +1,17 @@
+---
+stages:
+  - 'lint'
+
+workflow:
+  auto_cancel:
+    on_new_commit: 'none'
+    on_job_failure: 'none'
+
+commit-linter:
+  stage: 'lint'
+  image: 'cr.selcloud.ru/podumai/ci/alpine:1.1.0'
+  before_script:
+    - 'pnpm install --frozen-lockfile'
+  script:
+    - 'pnpm exec commitlint --from HEAD~1 --to HEAD --verbose'
+...
