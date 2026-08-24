@@ -14,4 +14,14 @@ commit-lint:
     - 'pnpm install --frozen-lockfile'
   script:
     - 'pnpm exec commitlint --config commitlint.config.mjs --from HEAD~1 --to HEAD --verbose'
+
+protobuf-lint:
+  stage: 'lint'
+  image: 'cr.selcloud.ru/podumai/ci/alpine:1.2'
+  needs: [ 'commit-lint' ]
+  rules:
+    - changes:
+        - 'proto/**'
+  script:
+    - 'buf lint --config buf.yaml'
 ...
