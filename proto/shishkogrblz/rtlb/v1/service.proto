@@ -1,0 +1,13 @@
+edition = "2023";
+
+package shishkogrblz.rtlb.v1;
+
+import "shishkogrblz/rtlb/v1/create_leaderboard_request.proto";
+import "shishkogrblz/rtlb/v1/create_leaderboard_response.proto";
+import "shishkogrblz/rtlb/v1/delete_leaderboard_request.proto";
+import "shishkogrblz/rtlb/v1/delete_leaderboard_response.proto";
+
+service RealTimeLeaderboardService {
+  rpc CreateLeaderboard(shishkogrblz.rtlb.v1.CreateLeaderboardRequest) returns (shishkogrblz.rtlb.v1.CreateLeaderboardResponse);
+  rpc DeleteLeaderboard(shishkogrblz.rtlb.v1.DeleteLeaderboardRequest) returns (shishkogrblz.rtlb.v1.DeleteLeaderboardResponse);
+}

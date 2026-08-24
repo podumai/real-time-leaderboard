@@ -1,0 +1,7 @@
+edition = "2023";
+
+package shishkogrblz.rtlb.v1;
+
+message DeleteLeaderboardRequest {
+  string leaderboard_id = 1;
+}

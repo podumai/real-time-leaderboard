@@ -1,0 +1,9 @@
+edition = "2023";
+
+package shishkogrblz.rtlb.v1;
+
+message CreateLeaderboardRequest {
+  string name = 1;
+  string description = 2;
+  uint32 max_attendants = 3;
+}
