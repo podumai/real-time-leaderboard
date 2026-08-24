@@ -21,7 +21,7 @@ protobuf-lint:
   needs: [ 'commit-lint' ]
   rules:
     - changes:
-        - 'proto/**'
+        - 'proto/**/*.proto'
   script:
     - 'buf lint --config buf.yaml'
 ...
