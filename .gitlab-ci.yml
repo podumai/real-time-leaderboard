@@ -7,9 +7,9 @@ workflow:
     on_new_commit: 'none'
     on_job_failure: 'none'
 
-commit-linter:
+commit-lint:
   stage: 'lint'
-  image: 'cr.selcloud.ru/podumai/ci/alpine:1.1.0'
+  image: 'cr.selcloud.ru/podumai/ci/alpine:1.2'
   before_script:
     - 'pnpm install --frozen-lockfile'
   script:
