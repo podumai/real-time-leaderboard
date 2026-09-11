@@ -31,6 +31,18 @@ cmake-lint:
   script:
     - 'uv run cmake-lint "$CI_PROJECT_DIR/**/CMakeLists.txt" "$CI_PROJECT_DIR/**/*.cmake"'
 
+yaml-lint:
+  stage: 'lint'
+  image: '$INFRASTRUCTURE_CONTAINER_REGISTRY/ci/yamllint:0.0.3'
+  needs: [ 'commit-lint' ]
+  rules:
+    - changes:
+        paths:
+          - '**/*.yaml'
+          - '**/*.yml'
+  script:
+    - 'yamllint -c "$CI_PROJECT_DIR/.yamllint.yaml" .'
+
 protobuf-lint:
   stage: 'lint'
   needs: [ 'commit-lint' ]
