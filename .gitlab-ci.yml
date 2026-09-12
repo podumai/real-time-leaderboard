@@ -4,6 +4,7 @@ default:
 
 stages:
   - 'lint'
+  - 'release'
 
 workflow:
   auto_cancel:
@@ -51,4 +52,24 @@ protobuf-lint:
         - 'proto/**/*.proto'
   script:
     - 'buf lint --config buf.yaml'
+
+release:
+  stage: 'release'
+  image: 'node:26.8.2-alpine3.23'
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  variables:
+    GIT_DEPTH: 0
+  before_script:
+    - 'apk add --no-cache git=2.52.0-r0 ca-certificates=20260611-r0'
+    # yamllint disable-line
+    - >
+      npm install -g semantic-release
+        @semantic-release/commit-analyzer
+        @semantic-release/release-notes-generator
+        @semantic-release/changelog
+        @semantic-release/git
+        @semantic-release/gitlab
+  script:
+    - 'semantic-release'
 ...
