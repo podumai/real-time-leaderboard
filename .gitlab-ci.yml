@@ -2,6 +2,12 @@
 default:
   image: 'cr.selcloud.ru/podumai/ci/alpine:1.2'
 
+variables:
+  KUBERNETES_CPU_REQUEST: '200m'
+  KUBERNETES_CPU_LIMIT: '1000m'
+  KUBERNETES_MEMORY_REQUEST: '128Mi'
+  KUBERNETES_MEMORY_LIMIT: '256Mi'
+
 stages:
   - 'lint'
   - 'release'
@@ -13,6 +19,8 @@ workflow:
 
 commit-lint:
   stage: 'lint'
+  variables:
+    GIT_DEPTH: 0
   before_script:
     - 'pnpm install --frozen-lockfile'
   script:
@@ -50,6 +58,11 @@ protobuf-lint:
   rules:
     - changes:
         - 'proto/**/*.proto'
+  variables:
+    KUBERNETES_CPU_REQUEST: '500m'
+    KUBERNETES_CPU_LIMIT: '1800m'
+
+    GOMAXPROCS: 2
   script:
     - 'buf lint --config buf.yaml'
 
