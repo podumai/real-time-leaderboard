@@ -64,12 +64,12 @@ release:
     - 'apk add --no-cache git=2.52.0-r0 ca-certificates=20260611-r0'
     # yamllint disable-line
     - >
-      npm install -g semantic-release
-        @semantic-release/commit-analyzer
-        @semantic-release/release-notes-generator
-        @semantic-release/changelog
-        @semantic-release/git
-        @semantic-release/gitlab
+      npm install -g semantic-release@25.0.9
+      @semantic-release/commit-analyzer@13.0.1
+      @semantic-release/release-notes-generator@14.1.1
+      @semantic-release/changelog@7.0.0
+      @semantic-release/git@11.0.1
+      @semantic-release/gitlab@13.3.3
   script:
     - 'semantic-release'
 ...
