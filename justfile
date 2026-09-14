@@ -22,3 +22,13 @@ cmake-lint +args:
 [group('bin')]
 conan +args:
     @uv run conan {{ args }}
+
+[doc('Invoke clang-format to format source code with predefined configuration file.')]
+[group('bin')]
+clang-format +args:
+    @uv run clang-format {{ args }}
+
+[doc('Invoke clang-tidy python wrapper to lint source code with predefined configuration file.')]
+[group('bin')]
+clang-tidy +args:
+    @uv run run-clang-tidy -config-file .clang-tidy {{ args }}
