@@ -28,7 +28,7 @@ commit-lint:
 
 just-lint:
   stage: 'lint'
-  image: 'ghcr.io/casey/just:1.58.0'
+  image: '$INFRASTRUCTURE_CONTAINER_REGISTRY/ci/justlint:0.0.1'
   needs: [ 'commit-lint' ]
   rules:
     - changes:
